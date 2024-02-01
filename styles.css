@@ -1,0 +1,99 @@
+:root {
+  --color-pinot: #5D0B0B;
+  --color-pixel: #F75915;
+  --color-rose: #FFDFD1;
+  --color-charcuterie: #FFF6EC;
+  --color-blackboard: #262626;
+  --color-slate: #A9A5A5;
+  --color-chalk: #F4F0F0;
+}
+
+@font-face {
+  font-family: 'Bricolage';
+  src: url('./fonts/bricolage-grotesque/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf');
+}
+
+body {
+  background-color: var(--color-rose);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.content-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+h1 {
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-delay: 3s;
+  color: var(--color-blackboard);
+  font-family: 'Bricolage';
+  opacity: 0;
+}
+
+/* ========== SVG ANIMATION ========== */
+#circut_1, #circut_2, #circut_3 {
+  animation: drawIn 2s ease-in-out forwards;
+  fill: transparent;
+  mask: url(#mask_circut);
+}
+
+#circut_1 {
+  animation-delay: 0.5s;
+}
+
+#circut_2 {
+  animation-delay: 1s;
+}
+
+#circut_3 {
+  animation-delay: 1.5s;
+}
+
+#leaf {
+  animation: wobble 2s infinite ease-in-out, drawInLeaf 2s ease-in-out forwards;
+  animation-delay: 2s;
+  fill: transparent;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ========== ANIMATION DEFINITIONS ========== */
+@keyframes drawInLeaf {
+  to {
+    fill: #5D0B0B;
+  }
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  25%, 75% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes drawIn {
+  to {
+    fill: var(--color-pinot);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
